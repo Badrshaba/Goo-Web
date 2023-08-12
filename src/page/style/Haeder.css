@@ -1,78 +1,142 @@
-.head p{
-    font-size: 12px;
-    margin: 0;
+.head p {
+  font-size: 12px;
+  margin: 0;
 }
-.FirstHeader{
-    width: 100%;
-    height: 18vh;
-background-color: transparent;
+.FirstHeader {
+  width: 100%;
+  height: 18vh;
+  background-color: transparent;
 }
-.logoNavbar{
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-    margin-left: 7px;
+.logoNavbar {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  margin-left: 7px;
 }
-.head{
-    z-index: 100;
+.divLogo {
+  width: 155px;
 }
-.textBar p:hover{
-    cursor: pointer;
-    background-color: #0a560a;
+.head {
+  z-index: 100;
+}
+.textBar p:hover {
+  cursor: pointer;
+  background-color: #0a560a;
 }
 .HeadSupport p {
-    width: 33%;
-    border-right: #00d800 solid;
+  width: 33%;
+  border-right: #00d800 solid;
+}
+.HeadSupport {
+  width: 200px;
+}
+.firstHead {
+  border-bottom: #00d800 1px solid;
+  padding-bottom: 8px;
+}
+.textBar p {
+  padding: 10px 5px;
+  text-align: center;
+}
+.searchIcon {
+  top: 2px;
+  right: 3px;
+  height: 29px;
+  text-align: center;
+  width: 37px;
+  cursor: pointer;
+  background-color: #00d800;
+}
+.head input {
+  padding: 5px 8px;
+  outline-color: transparent;
+}
+.divCart {
+  width: 22px;
+  border-radius: 13px;
+  font-size: 13px;
+  height: 21px;
+  text-align: center;
+  top: -9px;
+  cursor: pointer;
+}
+.cart {
+  font-size: 24px;
+  cursor: pointer;
+}
+.footer {
+  padding: 25px;
+}
+.hoverDiv {
+  height: 330px;
+  min-width: 300px;
+  right: -13px;
+  top: 47px;
+  overflow: auto;
+}
+.divHover {
+  width: 55px;
+  display: flex;
+  justify-content: center;
+}
+.widthNavBar {
+  width: 90% !important;
+  margin: auto;
+}
+.divInput {
+  width: 75%;
+}
+.divInput input {
+  width: 100%;
+}
+.headNavbar {
+  padding-top: 1rem;
+}
+@media only screen and (max-width: 935px) {
+  .divInput {
+    width: 100%;
+  }
+  .headNavbar {
+    position: relative;
+    padding-top: 10px;
+  }
+  .divLogo {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .divHover {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+  }
+}
+/* @media only screen and (max-width: 800px) {
+    .divInput input {
+      width: 75% ;
+    }
+    .searchIcon {
+        right: 54px;
+    }
+    .textBar p {
+        padding: 7px 3px;
+        
+    }
+    .head p {
+        font-size: 10px;
+        
+    }
+  } */
 
-}
-.firstHead{
-    border-bottom:#00d800 1px solid;
-    padding-bottom: 8px;
-}
-.textBar p{
-    padding: 10px 5px;
-    text-align: center;
-   
-}
-.searchIcon{
-    top: 2px;
-    right: 3px;
-    height: 29px;
-    text-align: center;
-    width: 37px;
-    cursor: pointer;
-    background-color: #00d800;
-}
-.head input{
-    padding: 5px 8px;
-    outline-color: transparent;
-}
-.divCart{
-    width: 22px;
-    border-radius: 13px;
-    font-size: 13px;
-    height: 21px;
-    text-align: center;
-    top: -9px;
-    cursor: pointer;
-}
-.cart{
-    font-size: 24px;
-cursor: pointer;
-}
-.footer{
-    padding: 25px;
-}
-.hoverDiv{
-    height: 330px;
-    min-width: 300px;
-    right: -13px;
-    top: 47px;
-    overflow: auto;
-  
-}
-.divHover{
-    width: 55px;
-    display: flex;
-    justify-content: center;
-}
+ @media only screen and (max-width: 570px) {
+    /* .logoNavbar{
+font-size: 19px;
+    } */
+    .head p {
+        font-size: 10px;
+        
+    }
+    .textBar p {
+        padding: 5px 3px;
+        
+    }
+  }  

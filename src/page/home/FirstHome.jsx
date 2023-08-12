@@ -10,5 +10,5 @@ const FirstHome = () => {
     </div>
   )
 }
-
+ 
 export default FirstHome

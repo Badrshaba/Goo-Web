@@ -75,6 +75,26 @@
         background-size: cover;
     }
 }
+
+
+@media only screen and (max-width: 1100px) {
+    .headFirstHome {
+        height: 42vh;
+    }
+  }  
+  @media only screen and (max-width: 900px) {
+
+    .headFirstHome{
+        height: 35vh;
+    }
+  }  
+  @media only screen and (max-width: 650px) {
+
+    .headFirstHome{
+        height: 25vh;
+    }
+  } 
+
 .headSecoundHome{
     padding: 9px 15px;
     background-color: white;

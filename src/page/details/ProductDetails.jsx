@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProductDetails } from "../../system/ProductDetailsSlice";
+import { getProductDetails, inceramentCount } from "../../system/ProductDetailsSlice";
 import "../style/ProductDetails.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { InfinitySpin } from  'react-loader-spinner'
-import { incermant } from "../../system/ProdutsSlice";
+import { incermant, pluse } from "../../system/ProdutsSlice";
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -13,6 +13,9 @@ const ProductDetails = () => {
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, []);
+
+
+  console.log(product);
 
   return (
     <div className=" headProdutDeatails ">
@@ -55,7 +58,7 @@ const ProductDetails = () => {
               <p className="pe-2 ps-2  ms-2 text-center ">
                 {" "}
                 <span className=" text-success ">Category:</span>{" "}
-                <span>{product.category}</span>
+                <span>{product.category}</span> 
               </p>
     </div>
     <div className=" p-2 bg-opacity-10 bg-black">
@@ -65,10 +68,10 @@ const ProductDetails = () => {
     
     </div>
     
-    <p className='quantity d-flex justify-content-lg-start mt-2'> Quantity: <button className=" ms-2">-</button><span>{product.count}</span><button onClick={()=>dispatch(incermant())} >+</button></p>
+     <p className='quantity d-flex justify-content-lg-start mt-2'> Quantity: <button className=" ms-2">-</button><span>{product.count}</span><button onClick={()=>dispatch(inceramentCount())} >+</button></p> 
     
-    <div>
-      <button onClick={()=>dispatch(incermant(product))} className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4"> <FaShoppingCart/>  Add To Cart</button>
+    <div className=" mt-3">
+      <button onClick={()=>dispatch(pluse(product))} className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4"> <FaShoppingCart/>  Add To Cart</button>
       <button className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4">Buy Now</button>
     </div>
             </div>

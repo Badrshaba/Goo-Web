@@ -34,7 +34,7 @@ const move = useNavigate()
                   <Card.Body>
                     <Card.Text className=' brandText'>
            <span> Brand:</span> {item.brand}
-                    </Card.Text>
+                    </Card.Text> 
                     <hr  className=' m-2'/>
                     <Card.Text className=' kindText'>
             {item.title}

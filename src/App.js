@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Haeder from './componant/Haeder'
 import Home from './page/home/Home'
 import Footer from './componant/Footer'
@@ -10,6 +10,13 @@ import Search from './page/search/Search'
 
 
 const App = () => {
+
+  const [cart,setCart]=useState([])
+
+  const pluse = ()=>{
+    
+  }
+
   return (
     <div  className=' bg-black bg-opacity-10'>
       <Haeder/>

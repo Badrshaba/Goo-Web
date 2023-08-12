@@ -75,4 +75,7 @@ flex-direction: column;
     width: 65px;
     height: 59px;
   }
+  .detailsDiv {
+    width: 300px;
+}
 }

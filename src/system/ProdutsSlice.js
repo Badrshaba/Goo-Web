@@ -22,15 +22,20 @@ const productsSlice = createSlice({
     loading: false,
   },
   reducers:{
-    incermant:(state,obj)=>{
+    pluse:(state,obj)=>{
       // let check = state.cart.map((e)=>{
       //   if(e.id==obj.payload){
       //     state.cart=([obj.payload, ...state.cart]);
       //   }
       // })
-       if (!state.cart.includes(obj.payload)) 
+      //  if (!state.cart.includes(obj.payload)) 
+      let check = state.cart.some((e)=>e!=obj)
+      if(check)
+      // state.cart = state.cart.map((e)=>{if(e.id==obj.id){e.count+=1} console.log(e); })
+    console.log(state.cart);
+      else
          state.cart=([obj.payload, ...state.cart]);
-       console.log(obj);
+        console.log(state.cart);
       //  } else {
         // console.log("no");
         // state.cart = ([...state.cart]);
@@ -41,7 +46,12 @@ const productsSlice = createSlice({
         // });
       // }
     },
-    decermant:()=>{},
+//     incermant:(state,obj)=>{
+//       let incer = state.cart.map((e)=>{if(e.id==obj.id){ e.count++}return e})
+//       console.log(incer);
+//  state.cart= incer
+//     },
+//     decermant:()=>{},
     deleteItem:(state,action)=>{
        let delet=state.cart.filter((e)=>e.id!=action.payload.id)
        state.cart=delet
@@ -69,4 +79,4 @@ return e
 });
 
 export const products = productsSlice.reducer;
-export const {incermant,decermant,deleteItem,deleteAll} = productsSlice.actions;
+export const {incermant,decermant,deleteItem,deleteAll,pluse} = productsSlice.actions;

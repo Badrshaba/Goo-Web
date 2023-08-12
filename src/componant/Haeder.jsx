@@ -28,7 +28,7 @@ const searchResults = (e)=>{
   return (
     <div className=" FirstHeader">
       <div className=" bg-success bg-gradient head w-100 position-fixed ">
-        <div className="text-white container ">
+        <div className="text-white  widthNavBar ">
           <div className=" d-flex justify-content-between firstHead pt-2">
             <div>
               {" "}
@@ -42,7 +42,7 @@ const searchResults = (e)=>{
                 </span>{" "}
               </p>
             </div>
-            <div className=" d-flex w-25 text-center HeadSupport ">
+            <div className=" d-flex  text-center HeadSupport ">
               <div className=" d-flex align-items-center w-100">
                 <span className=" fs-6">
                   <BsFillQuestionCircleFill />
@@ -52,8 +52,8 @@ const searchResults = (e)=>{
               </div>
             </div>
           </div>
-          <div className=" d-flex justify-content-evenly pt-3">
-            <div>
+          <div className=" d-flex justify-content-evenly flex-wrap  headNavbar">
+            <div className="divLogo">
               {" "}
               <SidBar />
               <Link to={"/"} className=" logoNavbar">
@@ -61,10 +61,10 @@ const searchResults = (e)=>{
                 <span className=" fw-bold">Goo</span> Web
               </Link>
             </div>
-            <div className=" w-75">
-              <div className=" position-relative">
+            <div className="  divInput">
+              <div className=" position-relative d-flex justify-content-center">
                 <input
-                  className=" w-100 border-0"
+                  className=" border-0"
                   placeholder="Search your preferred items here"
                   type="text"
                   value={search}
@@ -72,7 +72,7 @@ const searchResults = (e)=>{
                 />
                 <div className=" position-absolute searchIcon">
                   <BiSearchAlt2
-                    onClick={() => move(`/products/search/${search}`)}
+                       onClick={() => move(`/products/search/${search}`)}
                   />
                 </div>
               </div>
@@ -116,9 +116,9 @@ const searchResults = (e)=>{
   <>
 
 {cart.map((product,index)=>(
-  <div key={index} className=" d-flex justify-content-around align-items-center pt-3 pb-3 mb-2 border-bottom ">
+  <div key={index} className=" d-flex justify-content-around text-nowrap align-items-center pt-3 pb-3 mb-2 border-bottom ">
 <img  height={"30%"} width={"20%"} alt="" />
-<p className=" text-black-50"> {product.title}</p>
+<p className=" text-black-50"> {product.brand}</p>
 <p className=" text-success fw-bold"> EGP {product.price} </p>
 </div>
 

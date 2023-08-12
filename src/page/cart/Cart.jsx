@@ -3,7 +3,7 @@ import "../style/Cart.css";
 import Button from "react-bootstrap/Button";
 import { BsTrashFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAll, deleteItem, getAllProducts } from "../../system/ProdutsSlice";
+import { deleteAll, deleteItem, getAllProducts, incermant } from "../../system/ProdutsSlice";
 const Cart = () => {
   const dispatsh = useDispatch();
   const { cart } = useSelector((e) => e.products);
@@ -16,33 +16,33 @@ const Cart = () => {
   });
   console.log(cart);
   return (
-    <div>
+    <div className=" screen">
       {cart.length ? (
         <div className=" container mt-3 mb-3">
           <div className=" bg-white mt-2 mb-2 pt-2 row">
-            <p className="text-center col-2">S.N</p>
-            <p className="text-center col-2">Product</p>
-            <p className="text-center col-2">Unit Price</p>
-            <p className="text-center col-2">Quantity</p>
-            <p className="text-center col-2">Total Price</p>
-            <p className="text-center col-2">Actions</p>
+            <p className="text-center col-3">S.N</p>
+            <p className="text-center col-3">Product</p>
+            {/* <p className="text-center col-2">Last Price</p> */}
+            {/* <p className="text-center col-2">Quantity</p> */}
+            <p className="text-center col-3">Total Price</p>
+            <p className="text-center col-3">Actions</p>
           </div>
 
           {cart.map((product, index) => (
             <div className=" bg-white mt-3 mb-3 pt-3 row" key={index}>
-              <p className="text-center col-2">{product.id}</p>
-              <p className="text-center col-2">{product.brand}</p>
-              <p className="text-center text-black-50 col-2">{(product.price - product.price * 0.2).toFixed(2)}</p>
-              <p className="text-center quantity d-flex justify-content-center col-2">
+              <p className="text-center col-3">{product.id}</p>
+              <p className="text-center col-3">{product.brand}</p>
+              {/* <p className="text-center text-black-50 col-2">{(product.price )}</p> */}
+              {/* <p className="text-center quantity d-flex justify-content-center col-2">
                 <button>-</button>
                 <span>{product.count}</span>
-                <button>+</button>
-              </p>
+                <button onClick={()=>dispatsh(incermant(product))}>+</button>
+              </p> */}
               {console.log(product)}
-              <p className="text-center text-success fw-bold col-2">
-                {(product.price - product.price * 0.2).toFixed(2)}
+              <p className="text-center text-success fw-bold col-3">
+                {((product.price - product.price * 0.2)*product.count).toFixed(2)}
               </p>
-              <p onClick={()=>dispatsh(deleteItem(product))} className="text-center deleteButton col-2">Delete</p>
+              <p onClick={()=>dispatsh(deleteItem(product))} className="text-center deleteButton col-3">Delete</p>
             </div>
           ))}
 
@@ -58,7 +58,7 @@ const Cart = () => {
                 <p>
                   Total({cart.length})items:{" "}
                   <span className=" text-success fw-bold fs-5">
-                    EGP {lastPrice.reduce((y,x)=>y+x,0)}
+                    EGP {cart.map((e)=>e.id).reduce((y,x)=>y+x,0).toFixed(2)}
                   </span>{" "}
                 </p>
                 <button className="bg-success border-0 text-white p-2 m-1 pe-4 ps-4">

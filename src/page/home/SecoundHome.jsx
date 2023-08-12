@@ -14,6 +14,7 @@ const SecoundHome = () => {
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
+  console.log(product);
   return (
     <div>
       <div className="container ">
