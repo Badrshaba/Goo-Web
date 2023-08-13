@@ -83,8 +83,8 @@ const ProductDetails = () => {
     
     </div>
     
-     <p className='quantity d-flex justify-content-lg-start mt-2'> Quantity: <button onClick={()=>dispatch(deceramentCount())} className=" ms-2">-</button>
-     <span>{product.count}</span><button onClick={()=>dispatch(inceramentCount(product))} >+</button></p> 
+     <p className='quantity d-flex justify-content-lg-start mt-2'> Quantity: <button onClick={()=>dispatch(deceramentCount())} disabled={product.count<=1} className=" ms-2">-</button>
+     <span>{product.count}</span><button onClick={()=>dispatch(inceramentCount())} >+</button></p> 
     
     <div className=" mt-3">
       <button onClick={addProduct} className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4"> <FaShoppingCart/>  Add To Cart</button>

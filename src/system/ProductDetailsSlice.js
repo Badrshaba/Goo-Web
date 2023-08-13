@@ -18,27 +18,17 @@ const productSlice = createSlice({
   name: "productSlice",
   initialState: { product: [], loading: false },
   reducers:{
-    inceramentCount: (state, action) => {
-      
-      //  const findProduct =  state.product.find((e)=>e.id===action.payload.id)
-      //  console.log(findProduct);
-// state.product=state.product.map((e)=>{e.count++ 
-//   return e})
-     
-    //  console.log(state.product);
-
-    // let clone = [...action.payload,action.payload.count+=1]
-    // state.product.push(clone)
-    //   let x = action.payload.count
-    //   x+=1
-    //   x+=1
-    //  console.log(action.payload["count"]=x);
-     
-    
-      
+    inceramentCount: (state) => {    
+      let productCart = state.product
+      if (productCart) {
+       productCart.count+=1
+      }
     },
-    deceramentCount: () => {
-      console.log("ok");
+    deceramentCount: (state) => {
+      let productCart = state.product
+      if (productCart) {
+       productCart.count-=1
+      }
     },
   },
   extraReducers: (builder) => {

@@ -5,6 +5,7 @@ import { getSearchResult } from '../../system/SearchSlice'
 import "../style/Home.css"
 import Card from 'react-bootstrap/Card';
 import { InfinitySpin } from  'react-loader-spinner'
+import Scroll from '../../componant/Scroll'
 const Search = () => {
   const {product} = useParams()
   const {searchResult,loading} = useSelector(e=>e.searchResult)
@@ -16,6 +17,7 @@ const Search = () => {
   
   return (
     <div className=' screen'>
+      <Scroll/>
             {loading ? (
               <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
             ) :searchResult.products&&searchResult.products.length?

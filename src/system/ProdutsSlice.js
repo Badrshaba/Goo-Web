@@ -23,28 +23,25 @@ const productsSlice = createSlice({
   },
   reducers:{
     pluse:(state,action)=>{
-      if (!state.cart.includes(action.payload)) {
-        state.cart=([action.payload, ...state.cart]);
-      } else {
-        state.cart= [...state.cart];
-        state.cart.map((e) => {
-          if (e.id === action.payload) {
-            e.count++;
-          }
-          return e
-        });
-      }
-         console.log(state.product);
-         console.log(state.cart);
-         
- 
+let productCart = state.cart.find((e)=>e.id==action.payload.id)
+       if (productCart) {
+        productCart.count+=1
+       } else {
+         state.cart=([action.payload, ...state.cart]);
+       }
     },
-//     incermant:(state,obj)=>{
-//       let incer = state.cart.map((e)=>{if(e.id==obj.id){ e.count++}return e})
-//       console.log(incer);
-//  state.cart= incer
-//     },
-//     decermant:()=>{},
+    incermant:(state,action)=>{
+      let productCart = state.cart.find((e)=>e.id==action.payload.id)
+      if (productCart) {
+       productCart.count+=1
+      }
+    },
+     decermant:(state,action)=>{
+      let productCart = state.cart.find((e)=>e.id==action.payload.id)
+      if (productCart) {
+       productCart.count-=1
+      }
+     },
     deleteItem:(state,action)=>{
        let delet=state.cart.filter((e)=>e.id!=action.payload.id)
        state.cart=delet

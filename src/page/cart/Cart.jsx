@@ -3,20 +3,22 @@ import "../style/Cart.css";
 import Button from "react-bootstrap/Button";
 import { BsTrashFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAll, deleteItem, getAllProducts, incermant } from "../../system/ProdutsSlice";
+import { decermant, deleteAll, deleteItem, getAllProducts, incermant } from "../../system/ProdutsSlice";
+import Scroll from "../../componant/Scroll";
 const Cart = () => {
   const dispatsh = useDispatch();
   const { cart } = useSelector((e) => e.products);
   useEffect(() => {
     dispatsh(getAllProducts);
   }, []);
-  console.log(cart);
+  
   let lastPrice = cart.map((product) => {
-    return (product.price - product.price * 0.2).toFixed(2);
+    return (product.price - product.price * 0.2)*product.count;
   });
-  console.log(cart);
+  
   return (
     <div className=" screen">
+      <Scroll/>
       {cart.length ? (
         <div className=" container mt-3 mb-3">
           <div className=" bg-white mt-2 mb-2 pt-2 row d-flex align-items-center">
@@ -34,11 +36,11 @@ const Cart = () => {
               <p className="text-center col-2">{product.brand}</p>
               <p className="text-center text-black-50 col-2">{(product.price )}</p>
               <p className="text-center quantity d-flex justify-content-center col-2">
-                <button>-</button>
+                <button onClick={()=>dispatsh(decermant(product))} disabled={product.count<=1} >-</button>
                 <span>{product.count}</span>
                 <button onClick={()=>dispatsh(incermant(product))}>+</button>
               </p>
-              {console.log(product)}
+              
               <p className="text-center text-success fw-bold col-2">
                 {((product.price - product.price * 0.2)*product.count).toFixed(2)}
               </p>
@@ -58,7 +60,7 @@ const Cart = () => {
                 <p>
                   Total({cart.length})items:{" "}
                   <span className=" text-success fw-bold fs-5">
-                    EGP {cart.map((e)=>(e.price-e.price*.2)).reduce((y,x)=>y+x,0).toFixed(2)}
+                    EGP {(lastPrice.reduce((y,x)=>y+x,0)).toFixed(2)}
                   </span>{" "}
                 </p>
                 <button className="bg-success border-0 text-white p-2 m-1 pe-4 ps-4">
