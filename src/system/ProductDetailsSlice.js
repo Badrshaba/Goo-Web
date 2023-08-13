@@ -17,12 +17,30 @@ export const getProductDetails = createAsyncThunk(
 const productSlice = createSlice({
   name: "productSlice",
   initialState: { product: [], loading: false },
-//   reducer: {
-//     inceramentCount: (state) => {
-//       console.log(state.product.payload        );
-//     },
-//     decerament: () => {},
-//   }, 
+  reducers:{
+    inceramentCount: (state, action) => {
+      
+      //  const findProduct =  state.product.find((e)=>e.id===action.payload.id)
+      //  console.log(findProduct);
+// state.product=state.product.map((e)=>{e.count++ 
+//   return e})
+     
+    //  console.log(state.product);
+
+    // let clone = [...action.payload,action.payload.count+=1]
+    // state.product.push(clone)
+    //   let x = action.payload.count
+    //   x+=1
+    //   x+=1
+    //  console.log(action.payload["count"]=x);
+     
+    
+      
+    },
+    deceramentCount: () => {
+      console.log("ok");
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getProductDetails.pending, (state) => {
       state.loading = true;
@@ -40,4 +58,4 @@ const productSlice = createSlice({
 });
 
 export const product = productSlice.reducer;
-export const {inceramentCount,decerament} = productSlice.actions
+export const { inceramentCount, deceramentCount } = productSlice.actions;

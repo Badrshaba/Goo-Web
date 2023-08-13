@@ -73,6 +73,8 @@
   right: -13px;
   top: 47px;
   overflow: auto;
+  border: solid green;
+    border-radius: 10px;
 }
 .divHover {
   width: 55px;
@@ -138,5 +140,8 @@ font-size: 19px;
     .textBar p {
         padding: 5px 3px;
         
+    }
+    .divNone{
+      display: none;
     }
   }  

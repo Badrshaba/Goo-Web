@@ -17,6 +17,7 @@ const Haeder = () => {
   const [search , setsearch ]= useState("")
   const move = useNavigate();
   const {cart } = useSelector(e=>e.products)
+  const moveOn = () => move(`/products/search/${search}`)
 const dispatsh = useDispatch()
 useEffect(()=>{
   dispatsh(getAllProducts)
@@ -25,6 +26,7 @@ const searchResults = (e)=>{
   e.preventDefault();
   setsearch(e.target.value);
 }
+
   return (
     <div className=" FirstHeader">
       <div className=" bg-success bg-gradient head w-100 position-fixed ">
@@ -71,9 +73,7 @@ const searchResults = (e)=>{
                   onChange={searchResults}
                 />
                 <div className=" position-absolute searchIcon">
-                  <BiSearchAlt2
-                       onClick={() => move(`/products/search/${search}`)}
-                  />
+                  <BiSearchAlt2 onClick={search!=""?moveOn:null}  />
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ const searchResults = (e)=>{
                 <p onClick={() => move("/categories/fragrances")}>Fragrances</p>
                 <p onClick={() => move("/categories/skincare")}>Skincare</p>
                 <p onClick={() => move("/categories/groceries")}>Groceries</p>
-                <p onClick={() => move("/categories/home-decoration")}>
+                <p className="divNone" onClick={() => move("/categories/home-decoration")}>
                   Home Decoration
                 </p>
                 <p onClick={() => move("/categories/furniture")}>Furniture</p>
@@ -117,7 +117,7 @@ const searchResults = (e)=>{
 
 {cart.map((product,index)=>(
   <div key={index} className=" d-flex justify-content-around text-nowrap align-items-center pt-3 pb-3 mb-2 border-bottom ">
-<img  height={"30%"} width={"20%"} alt="" />
+<img  height={"30%"} src={product.images[0]} width={"20%"} alt="" />
 <p className=" text-black-50"> {product.brand}</p>
 <p className=" text-success fw-bold"> EGP {product.price} </p>
 </div>

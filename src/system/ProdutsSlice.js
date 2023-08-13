@@ -22,29 +22,22 @@ const productsSlice = createSlice({
     loading: false,
   },
   reducers:{
-    pluse:(state,obj)=>{
-      // let check = state.cart.map((e)=>{
-      //   if(e.id==obj.payload){
-      //     state.cart=([obj.payload, ...state.cart]);
-      //   }
-      // })
-      //  if (!state.cart.includes(obj.payload)) 
-      let check = state.cart.some((e)=>e!=obj)
-      if(check)
-      // state.cart = state.cart.map((e)=>{if(e.id==obj.id){e.count+=1} console.log(e); })
-    console.log(state.cart);
-      else
-         state.cart=([obj.payload, ...state.cart]);
-        console.log(state.cart);
-      //  } else {
-        // console.log("no");
-        // state.cart = ([...state.cart]);
-        // cartProducats.map((e) => {
-        //   if (e.id === obj.payload.id) {
-        //     e.count++;
-        //   }
-        // });
-      // }
+    pluse:(state,action)=>{
+      if (!state.cart.includes(action.payload)) {
+        state.cart=([action.payload, ...state.cart]);
+      } else {
+        state.cart= [...state.cart];
+        state.cart.map((e) => {
+          if (e.id === action.payload) {
+            e.count++;
+          }
+          return e
+        });
+      }
+         console.log(state.product);
+         console.log(state.cart);
+         
+ 
     },
 //     incermant:(state,obj)=>{
 //       let incer = state.cart.map((e)=>{if(e.id==obj.id){ e.count++}return e})
@@ -68,7 +61,7 @@ const productsSlice = createSlice({
       state.loading = false;
       
       state.product =  action.payload.products.map((e)=>{
-e["count"]=1
+e.count=1
 return e
       })
     });

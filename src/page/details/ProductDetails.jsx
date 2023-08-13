@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProductDetails, inceramentCount } from "../../system/ProductDetailsSlice";
+import { deceramentCount, getProductDetails, inceramentCount } from "../../system/ProductDetailsSlice";
 import "../style/ProductDetails.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { InfinitySpin } from  'react-loader-spinner'
-import { incermant, pluse } from "../../system/ProdutsSlice";
+import { pluse } from "../../system/ProdutsSlice";
+import Swal from "sweetalert2";
 const ProductDetails = () => {
+  const [data,setData]=useState({})
   const { id } = useParams();
   const dispatch = useDispatch();
   const { product,loading } = useSelector((e) => e.product);
@@ -15,8 +17,21 @@ const ProductDetails = () => {
   }, []);
 
 
-  console.log(product);
+  
 
+  const incermant=()=>{
+    console.log(data);
+    
+  }
+ const addProduct =()=>{
+  Swal.fire({
+    icon: 'success',
+    title: 'Product has been added',
+    showConfirmButton: false,
+    timer: 1500
+  })
+  dispatch(pluse(product))
+ }
   return (
     <div className=" headProdutDeatails ">
      {loading ? (
@@ -68,10 +83,11 @@ const ProductDetails = () => {
     
     </div>
     
-     <p className='quantity d-flex justify-content-lg-start mt-2'> Quantity: <button className=" ms-2">-</button><span>{product.count}</span><button onClick={()=>dispatch(inceramentCount())} >+</button></p> 
+     <p className='quantity d-flex justify-content-lg-start mt-2'> Quantity: <button onClick={()=>dispatch(deceramentCount())} className=" ms-2">-</button>
+     <span>{product.count}</span><button onClick={()=>dispatch(inceramentCount(product))} >+</button></p> 
     
     <div className=" mt-3">
-      <button onClick={()=>dispatch(pluse(product))} className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4"> <FaShoppingCart/>  Add To Cart</button>
+      <button onClick={addProduct} className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4"> <FaShoppingCart/>  Add To Cart</button>
       <button className=" bg-success border-0 text-white p-2 m-2 pe-4 ps-4">Buy Now</button>
     </div>
             </div>

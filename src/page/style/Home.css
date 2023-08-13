@@ -80,18 +80,21 @@
 @media only screen and (max-width: 1100px) {
     .headFirstHome {
         height: 42vh;
+        margin-top: 30px;
     }
   }  
   @media only screen and (max-width: 900px) {
 
     .headFirstHome{
         height: 35vh;
+        margin-top: 45px;
     }
   }  
   @media only screen and (max-width: 650px) {
 
     .headFirstHome{
         height: 25vh;
+        margin-top: 30px;
     }
   } 
 
@@ -156,10 +159,13 @@
     left: 7px;
     top: 20px;
     z-index: -1;
+
 }
+
 .cardHome{
     box-shadow: 1px 2px 7px;
     border-radius: 10px  !important;
+    padding: 0 !important;
 }
 .cardHome:hover{
     cursor: pointer;
@@ -168,5 +174,5 @@
     box-shadow: 2px 3px 11px;
 }
 .screen{
-    min-height: 68vh;
+    min-height: 71vh;
 }

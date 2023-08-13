@@ -27,24 +27,27 @@ const SecoundHome = () => {
             {loading ? (
               <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
             ) : (
-              <div className=" d-flex justify-content-around flex-wrap mt-3">
+  <dir className="p-0">
+                <div className="row d-flex justify-content-center mt-3">
                 {product.length &&
                   product.map((item, index) => (
                     <Card
                       key={index}
                       style={{ width: "18rem", height: "20rem" }}
-                      className="m-2 cardHome"
+                      className="m-2 cardHome col-lg-3 col-md-4 col-sm-8 col-12 "
                       onClick={() => move(`/product/${item.id}`)}
                     >
-                      <div
+                       <div
                         style={{ background: `url(${item.images[0]})` }}
                         className=" position-relative imgHome"
-                      >
+                      > 
+                         
                         <div className=" bg-success position-absolute categoryDiv">
                           {item.category}{" "}
                           <div className=" bg-success position-absolute"></div>{" "}
                         </div>
                       </div>
+                      
                       <Card.Body>
                         <Card.Text className=" brandText">
                           <span> Brand:</span> {item.brand}
@@ -64,6 +67,7 @@ const SecoundHome = () => {
                     </Card>
                   ))}
               </div>
+  </dir>
             )}
             {/*/////////////////////// smart phone category /////////////////////// */}
             <div className="mt-5 headSecoundHome">
@@ -72,14 +76,14 @@ const SecoundHome = () => {
             {loading ? (
   <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
             ) : (
-              <div className=" d-flex justify-content-around flex-wrap mt-3">
+              <div className=" row d-flex justify-content-center flex-wrap mt-3">
                 {product.length &&
                   product.filter((e) => e.category == "smartphones")
                     .map((item, index) => (
                       <Card
                         key={index}
                         style={{ width: "18rem", height: "20rem" }}
-                        className="m-2 cardHome"
+                        className="m-2 cardHome col-lg-3 col-md-4 col-sm-8 col-12"
                         onClick={() => move(`/product/${item.id}`)}
                       >
                         <div
@@ -118,7 +122,7 @@ const SecoundHome = () => {
             {loading ? (
  <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
             ) : (
-              <div className=" d-flex justify-content-around flex-wrap mt-3">
+              <div className="row d-flex justify-content-center flex-wrap mt-3">
                 {product.length &&
                   product
                     .filter((e) => e.category == "laptops")
@@ -126,7 +130,7 @@ const SecoundHome = () => {
                       <Card
                         key={index}
                         style={{ width: "18rem", height: "20rem" }}
-                        className="m-2 cardHome"
+                        className="m-2 cardHome col-lg-3 col-md-4 col-sm-8 col-12"
                         onClick={() => move(`/product/${item.id}`)}
                       >
                         <div
@@ -165,7 +169,7 @@ const SecoundHome = () => {
             {loading ? (
  <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
             ) : (
-              <div className=" d-flex justify-content-around flex-wrap mt-3">
+              <div className="row d-flex justify-content-center flex-wrap mt-3">
                 {product.length &&
                   product
                     .filter((e) => e.category == "fragrances")
@@ -173,7 +177,7 @@ const SecoundHome = () => {
                       <Card
                         key={index}
                         style={{ width: "18rem", height: "20rem" }}
-                        className="m-2 cardHome"
+                        className="m-2 cardHome col-lg-3 col-md-4 col-sm-8 col-12"
                         onClick={() => move(`/product/${item.id}`)}
                       >
                         <div
@@ -212,7 +216,7 @@ const SecoundHome = () => {
             {loading ? (
    <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
             ) : (
-              <div className=" d-flex justify-content-around flex-wrap mt-3">
+              <div className="row d-flex justify-content-center flex-wrap mt-3">
                 {product.length &&
                   product
                     .filter((e) => e.category == "skincare")
@@ -220,7 +224,7 @@ const SecoundHome = () => {
                       <Card
                         key={index}
                         style={{ width: "18rem", height: "20rem" }}
-                        className="m-2 cardHome"
+                        className="m-2 cardHome col-lg-3 col-md-4 col-sm-8 col-12"
                         onClick={() => move(`/product/${item.id}`)}
                       >
                         <div

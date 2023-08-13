@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(76, 76, 76, 0.01);
+  min-height: 72vh;;
 }
 .fristDiv {
   background-color: white;

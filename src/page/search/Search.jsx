@@ -13,7 +13,7 @@ const Search = () => {
     dispatsh(getSearchResult(product))
   },[product])
   const move = useNavigate()
-  console.log(searchResult.products    );
+  
   return (
     <div className=' screen'>
             {loading ? (
