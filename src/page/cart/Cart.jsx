@@ -22,26 +22,26 @@ const Cart = () => {
       {cart.length ? (
         <div className=" container mt-3 mb-3">
           <div className=" bg-white mt-2 mb-2 pt-2 row d-flex align-items-center">
-            <p className="text-center col-2">S.N</p>
-            <p className="text-center col-2">Product</p>
-            <p className="text-center col-2">Last Price</p>
-            <p className="text-center col-2">Quantity</p>
-            <p className="text-center col-2">Total Price</p>
+            <p className="text-center divCartNone col-2">S.N</p>
+            <p className="text-center col-lg-2 col-md-2 col-sm-2 col-3">Product</p>
+            <p className="text-center divCartNone col-2">Last Price</p>
+            <p className="text-center col-lg-2 col-md-2 col-sm-2 col-3">Quantity</p>
+            <p className="text-center col-lg-2 col-md-2 col-sm-2 col-3">Total Price</p>
             <p className="text-center col-2">Actions</p>
           </div>
 
           {cart.map((product, index) => (
             <div className=" bg-white mt-3 mb-3 pt-3 row d-flex align-items-center" key={index}>
-              <p className="text-center col-2">{product.id}</p>
-              <p className="text-center col-2">{product.brand}</p>
-              <p className="text-center text-black-50 col-2">{(product.price )}</p>
-              <p className="text-center quantity d-flex justify-content-center col-2">
+              <p className="text-center divCartNone col-2">{product.id}</p>
+              <p className="text-center col-lg-2 col-md-2 col-sm-2 col-3">{product.brand}</p>
+              <p className="text-center text-black-50 divCartNone col-2">{(product.price )}</p>
+              <p className="text-center quantity col-lg-2 col-md-2 col-sm-2 d-flex justify-content-center col-3">
                 <button onClick={()=>dispatsh(decermant(product))} disabled={product.count<=1} >-</button>
                 <span>{product.count}</span>
-                <button onClick={()=>dispatsh(incermant(product))}>+</button>
+                <button onClick={()=>dispatsh(incermant(product))}>+</button> 
               </p>
               
-              <p className="text-center text-success fw-bold col-2">
+              <p className="text-center text-success fw-bold col-lg-2 col-md-2 col-sm-2 col-3">
                 {((product.price - product.price * 0.2)*product.count).toFixed(2)}
               </p>
               <p onClick={()=>dispatsh(deleteItem(product))} className="text-center deleteButton col-2">Delete</p>
@@ -57,7 +57,7 @@ const Cart = () => {
                 </Button>
               </div>
               <div className=" d-flex flex-column">
-                <p>
+                <p className=" d-flex flex-wrap-reverse justify-content-center">
                   Total({cart.length})items:{" "}
                   <span className=" text-success fw-bold fs-5">
                     EGP {(lastPrice.reduce((y,x)=>y+x,0)).toFixed(2)}

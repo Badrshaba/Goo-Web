@@ -175,4 +175,7 @@
 }
 .screen{
     min-height: 71vh;
+    display: flex;
+    align-items: center;
+
 }

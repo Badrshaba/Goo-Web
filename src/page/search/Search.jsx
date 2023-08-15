@@ -16,7 +16,7 @@ const Search = () => {
   const move = useNavigate()
   
   return (
-    <div className=' screen'>
+    <div className=' screen justify-content-center'>
       <Scroll/>
             {loading ? (
               <div className=" d-flex justify-content-center"><InfinitySpin width="200" color="#4fa94d" /></div>
